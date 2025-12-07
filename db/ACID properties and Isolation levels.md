@@ -77,10 +77,6 @@ always choose the strictest) to achieve a practical balance between correctness 
 
 ---
 
-If you like — I can also **list common anomalies** (dirty read, non-repeatable read, phantom read, lost update…) and
-show **which isolation levels prevent which anomalies** (in a table) for clarity.
-Do you want me to build that table for you now?
-
 [1]: https://en.wikipedia.org/wiki/ACID?utm_source=chatgpt.com "ACID"
 
 [2]: https://www.ninjaone.com/it-hub/it-service-management/acid-properties/?utm_source=chatgpt.com "What Are ACID Properties? | NinjaOne"
