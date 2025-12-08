@@ -46,32 +46,32 @@ Stream<String> lines = Files.lines(Paths.get("file.txt"));
 
 There are two types of **Stream operations**:
 
-| **Type**        | **Description**                            | **Example**                  |
-|-----------------|--------------------------------------------|------------------------------|
-| Intermediate    | Returns another stream                     | `filter()`, `map()`, `sorted()` |
-| Terminal        | Produces a result or side-effect           | `forEach()`, `collect()`, `count()` |
+| **Type**     | **Description**                  | **Example**                         |
+|--------------|----------------------------------|-------------------------------------|
+| Intermediate | Returns another stream           | `filter()`, `map()`, `sorted()`     |
+| Terminal     | Produces a result or side-effect | `forEach()`, `collect()`, `count()` |
 
 ### 🧪 **Common Intermediate Operations:**
 
-| **Method**     | **Description**                          |
-|----------------|------------------------------------------|
-| `filter()`     | Filters elements based on a condition.    |
-| `map()`        | Transforms elements.                     |
-| `sorted()`     | Sorts the elements.                      |
-| `distinct()`   | Removes duplicate elements.               |
-| `limit()`      | Limits the number of elements.            |
-| `skip()`       | Skips the first few elements.             |
+| **Method**   | **Description**                        |
+|--------------|----------------------------------------|
+| `filter()`   | Filters elements based on a condition. |
+| `map()`      | Transforms elements.                   |
+| `sorted()`   | Sorts the elements.                    |
+| `distinct()` | Removes duplicate elements.            |
+| `limit()`    | Limits the number of elements.         |
+| `skip()`     | Skips the first few elements.          |
 
 ### 🧪 **Common Terminal Operations:**
 
-| **Method**     | **Description**                          |
-|----------------|------------------------------------------|
-| `forEach()`    | Performs an action for each element.      |
-| `collect()`    | Collects elements into a collection.      |
-| `count()`      | Returns the number of elements.           |
-| `reduce()`     | Reduces elements to a single value.       |
-| `findFirst()`  | Returns the first element.                |
-| `anyMatch()`   | Checks if any element matches a condition.|
+| **Method**    | **Description**                            |
+|---------------|--------------------------------------------|
+| `forEach()`   | Performs an action for each element.       |
+| `collect()`   | Collects elements into a collection.       |
+| `count()`     | Returns the number of elements.            |
+| `reduce()`    | Reduces elements to a single value.        |
+| `findFirst()` | Returns the first element.                 |
+| `anyMatch()`  | Checks if any element matches a condition. |
 
 ---
 
@@ -229,18 +229,18 @@ numbers.parallelStream()
 
 ### ✅ **Summary of Key Methods:**
 
-| **Method**        | **Description**                                   |
-|-------------------|---------------------------------------------------|
-| `filter()`        | Filters elements based on a condition.            |
-| `map()`           | Transforms each element.                          |
-| `sorted()`        | Sorts elements.                                   |
-| `distinct()`      | Removes duplicates.                                |
-| `forEach()`       | Performs an action on each element.               |
-| `collect()`       | Collects elements into a collection.              |
-| `reduce()`        | Reduces elements to a single value.               |
-| `count()`         | Returns the number of elements.                   |
-| `findFirst()`     | Returns the first element in the stream.          |
-| `anyMatch()`      | Checks if any element matches a condition.         |
+| **Method**    | **Description**                            |
+|---------------|--------------------------------------------|
+| `filter()`    | Filters elements based on a condition.     |
+| `map()`       | Transforms each element.                   |
+| `sorted()`    | Sorts elements.                            |
+| `distinct()`  | Removes duplicates.                        |
+| `forEach()`   | Performs an action on each element.        |
+| `collect()`   | Collects elements into a collection.       |
+| `reduce()`    | Reduces elements to a single value.        |
+| `count()`     | Returns the number of elements.            |
+| `findFirst()` | Returns the first element in the stream.   |
+| `anyMatch()`  | Checks if any element matches a condition. |
 
 ---
 
