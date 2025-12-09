@@ -81,7 +81,7 @@ Here’s a minimal example flow to get started:
    DB support), optionally messaging (Kafka/RabbitMQ) if you plan event-driven.
 2. **Define domain commands & command handlers**
 
-   ```java
+```java
 public class CreateOrderCommand {
    private String orderId;
    private String productId;
@@ -103,6 +103,7 @@ public class OrderCommandHandler {
    }
 }
 ```
+
 3. **Define domain events** (e.g. `OrderCreatedEvent`) and event listener / projector to build / update read-side model.
 4. **Define read model (query side)** — e.g. a different entity or document optimized for views/queries. May use a
    different database or a denormalized schema.
