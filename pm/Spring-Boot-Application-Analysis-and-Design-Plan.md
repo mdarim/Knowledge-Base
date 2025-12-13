@@ -4,7 +4,7 @@
 
 The Java Spring Boot Technical Project Manager is responsible for managing the
 development, deployment, and maintenance of applications using
-the [Spring Boot](Spring-Boot-framework.md) or [Spring](Spring-framework.md) frameworks.
+the [Spring Boot](../spring/Spring-Boot-framework.md) or [Spring](../spring/Spring-framework.md) frameworks.
 This role involves coordinating with cross-functional teams, overseeing project timelines,
 and ensuring the delivery of high-quality software solutions that meet business
 requirements.
@@ -27,12 +27,12 @@ requirements.
 
 - Provide technical guidance and leadership in the design, development, and deployment of
   Spring Boot applications.
-- Ensure the [adoption of best practices](adoption-of-java-spring-boot-cloud-best-practices.md) for coding, testing, and deployment to 
+- Ensure the [adoption of best practices](../spring/adoption-of-java-spring-boot-cloud-best-practices.md) for coding, testing, and deployment to 
   maintain
   high-quality software standards.
 - Stay current with industry trends and advancements in Java
-  and [Spring Boot technologies](Spring-Boot-technologies.md)
-  and [tools](best-Spring-Boot-tools.md) to drive innovation and continuous improvement.
+  and [Spring Boot technologies](../spring/Spring-Boot-technologies.md)
+  and [tools](../spring/best-Spring-Boot-tools.md) to drive innovation and continuous improvement.
 
 ### Team Collaboration
 
@@ -79,10 +79,10 @@ requirements.
 
 ### Technical skills
 
-- Experience in [preparing Spring boot development environment](preparing-Spring-boot-development-environment.md).
+- Experience in [preparing Spring boot development environment](../spring/preparing-Spring-boot-development-environment.md).
 - [Strong proficiency in Java and the Spring Boot framework](Strongly-proficient-in-Java-and-Spring-Boot-framework.md).
-- Experience in [Spring Boot Best Practices](Spring-Boot-Best-Practices.md).
-- Experience in [Spring Cloud Best Practices](spring-cloud-best-practices.md).
+- Experience in [Spring Boot Best Practices](../spring/Spring-Boot-Best-Practices.md).
+- Experience in [Spring Cloud Best Practices](../spring/spring-cloud-best-practices.md).
 - Experience in [Monitoring Spring Boot projects progress](Monitor-spring-boot-project-progress.md).  
 - Experience with RESTful API design and development.
 - Knowledge of database technologies (SQL, NoSQL) and ORM frameworks (Hibernate).
@@ -105,25 +105,25 @@ requirements.
 
 - [main documents for system analyst](system-analyst-documents.md)
 - [Java Technical Lead Interview Questions](Java-Technical-Lead-Interview-Questions.md)
-- [Algorithm problem-solving techniques](articles/algorithm-problem-solving-techniques.md)
-- [best front-end framework for spring cloud](articles/best-front-end-framework-for-spring-cloud-to-create-dashboard.md)
-- [Development Manager and a Technical Manager](articles/development-vs-technical-manager.md)
-- [Disadvantages of using oracle apex](articles/disadvantages-of-using-oracle-apex.md)
-- [Java Spring Cloud Development Manager](articles/Java-Spring-Cloud-Development-Manager-job-description.md)
-- [Java Spring Cloud development and production environment](articles/Java-Spring-Cloud-environments.md)
-- [Java Spring Cloud Skills](articles/Java-Spring-Cloud-skills.md)
-- [distributed system Support in spring boot cloud](articles/distributed-system-Support-in-spring-boot-cloud.md)  
-- [Kendo UI and DevExtreme](articles/KendoUI-vs-DevExtreme.md)
-- [Mastering microservices with Spring Cloud](articles/master-microservices-with-spring-cloud.md)
-- [Oracle Application Express](articles/oracle-apex-main-features.md)
-- [Java Spring Cloud development environments tools](articles/preparing-Java-Spring-Cloud-development-environments-tools.md)
-- [Problem solving techniques](articles/problem-solving-techniques.md)
-- [Scrum Agile framework](articles/Scrum-agile-framework.md)
-- [Scrum Experiences](articles/scrum-experiences.md)
-- [Cloud native development principles with spring](articles/cloud-native-development-principles-with-spring.md)
-- [Use Spring Cloud with Docker and kubernetes](articles/use-spring-cloud-with-docker-and-kubernetes.md)
+- [Algorithm problem-solving techniques](../articles/algorithm-problem-solving-techniques.md)
+- [best front-end framework for spring cloud](../articles/best-front-end-framework-for-spring-cloud-to-create-dashboard.md)
+- [Development Manager and a Technical Manager](../articles/development-vs-technical-manager.md)
+- [Disadvantages of using oracle apex](../articles/disadvantages-of-using-oracle-apex.md)
+- [Java Spring Cloud Development Manager](../articles/Java-Spring-Cloud-Development-Manager-job-description.md)
+- [Java Spring Cloud development and production environment](../articles/Java-Spring-Cloud-environments.md)
+- [Java Spring Cloud Skills](../articles/Java-Spring-Cloud-skills.md)
+- [distributed system Support in spring boot cloud](../articles/distributed-system-Support-in-spring-boot-cloud.md)  
+- [Kendo UI and DevExtreme](../articles/KendoUI-vs-DevExtreme.md)
+- [Mastering microservices with Spring Cloud](../articles/master-microservices-with-spring-cloud.md)
+- [Oracle Application Express](../articles/oracle-apex-main-features.md)
+- [Java Spring Cloud development environments tools](../articles/preparing-Java-Spring-Cloud-development-environments-tools.md)
+- [Problem solving techniques](../articles/problem-solving-techniques.md)
+- [Scrum Agile framework](../articles/Scrum-agile-framework.md)
+- [Scrum Experiences](../articles/scrum-experiences.md)
+- [Cloud native development principles with spring](../articles/cloud-native-development-principles-with-spring.md)
+- [Use Spring Cloud with Docker and kubernetes](../articles/use-spring-cloud-with-docker-and-kubernetes.md)
   (articles/cloud-native-development-principles-with-spring.md)
-- [Spring Boot Application Analysis and Design Plan](articles/spring-boot-application-analysis-and-design-plan.md)
+- [Spring Boot Application Analysis and Design Plan](../articles/spring-boot-application-analysis-and-design-plan.md)
 ---
 
 This job description aims to attract candidates with both technical expertise in Java
