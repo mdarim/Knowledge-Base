@@ -158,10 +158,10 @@ A **microservices-based e-commerce backend** including:
 
 ## 🧠 **Teaching Tips**
 
-✔ Use real datasets and mock environments
-✔ Incorporate modern build tools (Gradle/Maven workflows)
-✔ Focus on *deployable* and *maintainable* code
-✔ Include troubleshooting and debugging labs
+* Use real datasets and mock environments
+* Incorporate modern build tools (Gradle/Maven workflows)
+* Focus on *deployable* and *maintainable* code
+* Include troubleshooting and debugging labs
 
 ---
 
