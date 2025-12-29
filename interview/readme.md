@@ -55,3 +55,6 @@ Number of Question(s): 1
 * [software engineering principles.md](../principles/software%20engineering%20principles.md)
 * [SOLID design principles using spring.md](../principles/SOLID%20design%20principles%20using%20spring.md)
 * [FIRST principles of unit testing.md](../principles/FIRST%20principles%20of%20unit%20testing.md)
+
+* [array access items spiral.md](../algorithm/array/array%20access%20items%20spiral.md)
+* [rotate an array by n elements.md](../algorithm/array/rotate%20an%20array%20by%20n%20elements.md)
