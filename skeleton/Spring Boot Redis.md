@@ -982,3 +982,168 @@ If you want, I can expand this with **asynchronous warmup patterns** or **how to
 [4]: https://www.reddit.com//r/SpringBoot/comments/1oi5bau?utm_source=chatgpt.com "Best Event to Initialize Cache After Config Server Properties Are Loaded (Spring Boot 3.5.x)"
 [5]: https://xie.infoq.cn/article/0628bb28c959adec8b4b6dea2?utm_source=chatgpt.com "面试官：SpringBoot如何实现缓存预热？_Java_王磊_InfoQ写作社区"
 [6]: https://docs.spring.io/spring-boot/reference/io/caching.html?utm_source=chatgpt.com "Caching :: Spring Boot"
+
+Here’s how you can implement **asynchronous cache warm-up (preloading) for your Redis cache in a Spring Boot application**, especially for hierarchical/organizational data. This lets you **warm the cache in the background** so the app starts quickly and heavy loads are done without blocking users. ([blog.51cto.com][1])
+
+---
+
+## 🔥 1) Asynchronous Warm-Up with `@Async`
+
+You can run warm-up logic in a separate thread so it **doesn’t block application startup**.
+
+### Step A — Enable Async Support
+
+Add this to your main application class:
+
+```java
+@SpringBootApplication
+@EnableCaching
+@EnableAsync
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+
+### Step B — Create Async Warm-Up Component
+
+```java
+@Component
+public class AsyncCacheWarmer {
+
+    private final DepartmentService deptService;
+
+    public AsyncCacheWarmer(DepartmentService deptService) {
+        this.deptService = deptService;
+    }
+
+    @Async
+    @EventListener(ApplicationReadyEvent.class)
+    public void warmUpCache() {
+        List<Long> hotDeptIds = List.of(1L, 2L, 3L); // hot keys
+        hotDeptIds.forEach(deptService::getFullHierarchy);
+    }
+}
+```
+
+✅ `@Async` runs warm-up in a different thread, so **startup isn’t blocked by slow DB reads**.
+✅ `ApplicationReadyEvent` ensures Redis and the Spring cache system are ready first. ([blog.51cto.com][1])
+
+---
+
+## 🧠 2) Configurable Warm-Up Properties
+
+Rather than hard-coding IDs, you can make warm-up settings configurable (incl. async, timeout, batch size), which is useful for large datasets. Example config:
+
+```yaml
+app:
+  cache:
+    preload:
+      enabled: true
+      async: true
+      timeout: 30000
+      batch-size: 1000
+```
+
+Then bind it to a properties class:
+
+```java
+@ConfigurationProperties(prefix = "app.cache.preload")
+@Data
+public class CachePreloadProperties {
+    private boolean enabled;
+    private boolean async;
+    private long timeout;
+    private int batchSize;
+}
+```
+
+Using properties like this lets you **tune preloading without code changes**. ([blog.51cto.com][1])
+
+---
+
+## 🗂 3) Batch Warm-Up for Large Datasets
+
+If you have **many hierarchy keys (e.g., thousands)**, load them in batches to avoid memory spikes and long DB locks.
+
+```java
+@Async
+@EventListener(ApplicationReadyEvent.class)
+public void batchWarmUp() {
+    List<Long> allIds = deptService.getAllHotIds(); // e.g., top departments
+    int batchSize = cachePreloadProperties.getBatchSize();
+    for (int i = 0; i < allIds.size(); i += batchSize) {
+        int end = Math.min(i + batchSize, allIds.size());
+        allIds.subList(i, end).forEach(deptService::getFullHierarchy);
+    }
+}
+```
+
+Batching keeps warm-up stable even with large lists — especially for hierarchies where each load may be heavy. ([blog.51cto.com][1])
+
+---
+
+## 📆 4) Scheduled or Periodic Refresh
+
+Preloading once at startup is good, but hierarchical data may change. You can **periodically refresh hot cache entries**:
+
+```java
+@Scheduled(cron = "0 0 * * * ?") // every hour
+public void refreshHotCache() {
+    hotDeptIds.forEach(deptService::getFullHierarchy);
+}
+```
+
+Scheduled refresh is especially useful when TTL expires or underlying DB updates frequently. ([DZone][2])
+
+---
+
+## 🔧 5) Key Best Practices
+
+### 🚀 Don’t Warm Everything
+
+Only warm *hot or frequently accessed* keys — warming all data can slow startup and overload Redis. ([DZone][2])
+
+### ⏱ Use TTL to Avoid Stale Entries
+
+Configure TTL for your caches so entries don’t live forever:
+
+```java
+RedisCacheConfiguration config =
+    RedisCacheConfiguration.defaultCacheConfig()
+        .entryTtl(Duration.ofMinutes(30));
+```
+
+TTL avoids stale warm data if DB changes outside your app. ([GeeksforGeeks][3])
+
+### 🪩 Watch Startup Time
+
+Warm-up adds work at launch — moving it to async or scheduled tasks reduces initial latency and spreads load. ([blog.51cto.com][1])
+
+---
+
+## 🧠 Summary
+
+| Warm-Up Strategy                   | Runs on Startup?   | Blocking      | When to Use              |
+|------------------------------------|--------------------|---------------|--------------------------|
+| `@EventListener + @Async`          | Yes (non-blocking) | No            | Best for hot hierarchies |
+| Batch warm-up                      | Yes                | No (if async) | Large datasets           |
+| Periodic Scheduled                 | Not startup        | No            | Refresh TTL / changes    |
+| CommandLineRunner / @PostConstruct | Yes                | Yes           | Simple but blocks        |
+
+---
+
+### 🔎 Recap
+
+✔ Use `@Async` + `ApplicationReadyEvent` to *warm Redis asynchronously* after app startup. ([blog.51cto.com][1])
+✔ Make warm-up configurable and batched for large key sets. ([blog.51cto.com][1])
+✔ Consider scheduled refresh to keep hot data fresh over time. ([DZone][2])
+
+---
+
+If you want, I can also show you how to **monitor Redis cache hit/miss ratios** or handle **cache invalidation events** when underlying data changes in the DB.
+
+[1]: https://blog.51cto.com/u_16213680/14242811?utm_source=chatgpt.com "Spring Boot 启动时将数据库数据预加载到 Redis 缓存_mob64ca140f67e3的技术博客_51CTO博客"
+[2]: https://dzone.com/articles/caching-spring-boot-redis-elasticache?utm_source=chatgpt.com "Caching Mechanisms Using Spring Boot With Redis, ElastiCache"
+[3]: https://www.geeksforgeeks.org/advance-java/spring-boot-caching-with-redis/?utm_source=chatgpt.com "Spring Boot - Caching with Redis - GeeksforGeeks"
